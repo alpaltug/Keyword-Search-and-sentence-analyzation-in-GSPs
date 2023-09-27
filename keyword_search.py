@@ -1,6 +1,7 @@
 import re
 import fitz
 
+
 def find_keywords_on_page(page_text, keywords, page_num):
     results = {keyword: [] for keyword in keywords}
     sentences = page_text.split('.')
@@ -34,11 +35,12 @@ def write_results_to_file(results, output_file_path):
 
 def main():
     file_path = 'Chowchilla/Chowchilla_GSP_20200107_final.pdf'  # path to the big file
-    keywords = ['fund', 'finance', 'financing', 'cost', 'grant', 'budget', 'million', 'dollar', 'fees', 'capital', 'rates', 'revenue', 'bond', 'loan', 'tax', 'grant']  # keywords to search
+    keywords = ['fund', 'financ', 'cost', 'grant', 'budget', 'million', 'dollar', 'fee', 'capital', 'rate', 'revenue', 'bond', 'loan', 'tax', 'grant']  # keywords to search
     output_file_path = 'results.txt'  # path to the output file
 
     results = search_keywords(file_path, keywords)
     write_results_to_file(results, output_file_path)
+    print("done")
 
 if __name__ == "__main__":
     main()
